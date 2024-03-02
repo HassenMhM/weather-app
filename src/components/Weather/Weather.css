@@ -79,6 +79,9 @@ p{
     }
 }
 @media(max-width: 1200px){
+    .weather-container .bottom-container{
+        flex-direction: column;
+    }
     .weather-container .bottom-container .box{
         margin-right: 20px;
         margin-bottom: 10px;
@@ -87,6 +90,7 @@ p{
     .weather-container .bottom-container .box p{
         font-size: 19px;
     }
+    
 }
 @media(max-width: 991px){
     .icons img{
@@ -95,24 +99,25 @@ p{
     }
     .weather-container{
         margin: 30px 0;
-        padding: 10px;
+        padding: 30px;
         padding-bottom: 20px;
     }
     .weather-container .bottom-container .box{
-        margin-right: 18px;
+        margin-right: 10px;
+        margin-left: 10px;
         margin-bottom: 10px;
         padding: 6px 14px ;
     }
     .weather-container .bottom-container .box p{
-        font-size: 14px;
+        font-size: 12px;
     }
     p.city{
         font-size: 30px;
     }
     p.date{
-        font-size: 21px;
+        font-size: 18px;
     }
     p.temp{
-        font-size: 18px;
+        font-size: 15px;
     }
 }
