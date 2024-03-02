@@ -7,7 +7,7 @@ export const Search=()=>{
     const [cities, setCities] = useState([])
     fetch(`https://countriesnow.space/api/v0.1/countries`).then(response=>response.json()).then(json=>{
         let citiesArray=json.data[0].cities
-        for(let i=1;i<=100;i++){
+        for(let i=1;i<=2;i++){
             citiesArray=citiesArray.concat(json.data[i].cities)
         }
         setCities(citiesArray)
