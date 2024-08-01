@@ -1,10 +1,15 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: -10px auto;
   padding: 2rem;
   text-align: center;
 }
-
+@media (max-width:767px) {
+  #root {
+    margin: 0;
+    padding: 0;
+  }
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -32,16 +37,12 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 body{
-  background-image: url('/src/assets/img/wallpaper.jpg');
-  background-repeat: no-repeat;
-  background-size: 1500px;
+  background: linear-gradient(to right,#2b2047,#5c3f5e);
 }
+/* 
+@media(max-width: 991px){
+  body{
+    background-size: 900px;
+  }
+} */

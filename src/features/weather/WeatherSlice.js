@@ -5,6 +5,8 @@ const initialState={
     temp_1:undefined,
     weather_1:undefined,
     cityName:undefined,
+    humidite:undefined,
+    wind:undefined,
     day_2:undefined,
     temp_2:undefined,
     weather_2:undefined,
@@ -30,6 +32,8 @@ export const WeatherSlice=createSlice({
             state.temp_1=action.payload.temp_1
             state.weather_1=action.payload.weather_1
             state.cityName=action.payload.cityName
+            state.humidite=action.payload.humidite
+            state.wind=action.payload.wind
             state.day_2=action.payload.day_2
             state.temp_2=action.payload.temp_2
             state.weather_2=action.payload.weather_2

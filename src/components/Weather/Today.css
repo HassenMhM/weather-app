@@ -1,5 +1,17 @@
 .today-icon img{
-    position: relative;
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
+}
+@media(max-width:991px){
+    .today-icon img{
+        width: 80px;
+        height: 80px;
+    }
+}
+@media(max-width:767px){
+    .today-icon img{
+        width: 60px;
+        height:60px;
+        transform: translateX(-14%);
+    }
 }

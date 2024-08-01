@@ -1,48 +1,48 @@
-import { Autocomplete, Button, TextField } from '@mui/material'
+/* eslint-disable no-unused-vars */
 import *as styles from './Search.css'
 import { useState } from 'react'
 import { setData } from '../../features/weather/WeatherSlice'
 import { store } from '../../app/store'
+import { fetchWeatherData } from './data'
+import { cities } from './cities'
 export const Search=()=>{
-    const [cities, setCities] = useState([])
-    fetch(`https://countriesnow.space/api/v0.1/countries`).then(response=>response.json()).then(json=>{
-        let citiesArray=json.data[0].cities
-        for(let i=1;i<=100;i++){
-            citiesArray=citiesArray.concat(json.data[i].cities)
+    const handleSubmit=()=>{
+        const input=document.getElementById('search-input')
+        fetchWeatherData(input.value)
+    } 
+    const citiesFilter=(inputValue)=>{
+        return(cities.filter((city)=>city.toLowerCase().startsWith(inputValue.toLowerCase())))
+    }
+    const handleChange=()=>{
+        if(document.getElementById('suggestionsList')!==null){
+            document.getElementById('suggestionsList').remove()
         }
-        setCities(citiesArray)
-    })
-    const handleChange=(e)=>{
-        const searchedCity=e.currentTarget.innerHTML
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchedCity}&appid=863cdde3f33da3f25a3937332baf05ff&units=metric`).then(response=>response.json()).then(json=>{
-            const Data={
-                day_1:json.list[0].dt_txt,
-                temp_1:Math.round(json.list[0].main.temp),
-                weather_1:json.list[0].weather[0].main,
-                cityName:json.city.name,
-                day_2:json.list[8].dt_txt,
-                temp_2:Math.round(json.list[8].main.temp),
-                weather_2:json.list[8].weather[0].main,
-                day_3:json.list[16].dt_txt,
-                temp_3:Math.round(json.list[16].main.temp),
-                weather_3:json.list[16].weather[0].main,
-                day_4:json.list[24].dt_txt,
-                temp_4:Math.round(json.list[24].main.temp),
-                weather_4:json.list[24].weather[0].main,
-                day_5:json.list[32].dt_txt,
-                temp_5:Math.round(json.list[32].main.temp),
-                weather_5:json.list[32].weather[0].main,
-                day_6:json.list[39].dt_txt,
-                temp_6:Math.round(json.list[39].main.temp),
-                weather_6:json.list[39].weather[0].main
+        const inputValue=document.getElementById('search-input').value
+        if(inputValue.length>=3){
+            const searchContainer=document.getElementById("search")
+            const suggestionsList=document.createElement('ul')
+            suggestionsList.setAttribute('id','suggestionsList')
+            for(let i=0;i<=citiesFilter(inputValue).length-1;i++){
+                const suggestion=document.createElement('li')
+                suggestion.addEventListener('click',handleClick)
+                suggestion.innerHTML=citiesFilter(inputValue)[i]
+                suggestionsList.appendChild(suggestion)
             }
-            store.dispatch(setData(Data))
-        })
+            searchContainer.appendChild(suggestionsList)
+        }
+    }
+    const handleClick=(e)=>{
+        fetchWeatherData(e.currentTarget.innerHTML)
+        document.getElementById('search-input').value=e.currentTarget.innerHTML
+        document.getElementById('suggestionsList').remove()
     }
     return (
         <>
-            <Autocomplete clearOnBlur={false} onChange={handleChange} className='search' renderInput={(params)=><TextField {...params} label={'Enter a city ....'}/>}
-            options={cities}/>
+        <form action="">
+            <div className="search" id='search'>
+                <input type="text" onChange={handleChange} className="search-input" id='search-input' />
+            </div>
+        </form>
         </>
     )
 }

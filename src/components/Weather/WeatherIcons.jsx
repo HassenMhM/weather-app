@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Cloudy } from "../Icons/Cloudy"
 import { CloudyRainy } from "../Icons/CloudyRainy"
 import { Rain } from "../Icons/Rain"
