@@ -87,27 +87,6 @@ p{
 }
 @media(max-width: 991px){
     .icons img{
-        height: 75px;
-        width: 75px;
-        margin: 0;
-    }
-    .weather-container{
-        margin: 20px 0;
-        padding: 30px;
-        padding-bottom: 20px;
-    }
-    .weather-container .bottom-container .box{
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        padding: 6px 14px ;
-    }
-    .weather-container .bottom-container .box p{
-        font-size: 12px;
-    }
-}
-@media(max-width: 767px){
-    .icons img{
         width: 40px;
         height: 40px;
         margin-left: 20px;
