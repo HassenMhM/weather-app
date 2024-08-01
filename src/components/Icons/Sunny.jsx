@@ -4,7 +4,7 @@ import *as styles from '../Weather/Weather.css'
 export const Sunny=()=>{
     return( 
         <div className="icons">
-            <img src={sunny} alt=""  />
+            <img src={sunny} alt="" id='sunny' />
         </div>
     )
 }

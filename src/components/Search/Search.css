@@ -66,3 +66,15 @@
         padding-left: 10px;
     }
 }
+@media (max-width:767px) {
+    .search ul{    
+        top: 35px;
+        left: 6.5%;
+        width: 65%;
+        text-align: start;
+        height: 400px;
+    }
+    .search ul li{
+        padding-left: 10px;
+    }
+}

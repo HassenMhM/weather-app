@@ -105,7 +105,7 @@ p{
     }
     .weather-container .bottom-container{
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         margin-top: 20px;
     }
     .weather-container .top-container{
@@ -117,17 +117,13 @@ p{
     .weather-container .top-container p{
         padding: 0;
     }
-    .weather-container .bottom-container{
-        display: flex;
-        flex-direction: column;
-    }
     .weather-container .bottom-container .box{
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin: 0;
+        margin-top: 7px;
         border: 1px solid rgba(255, 255, 255, 0.753);
-        padding-right: 20px;
-        padding-left: 20px;
     }
     .weather-container .bottom-container .box p{
         font-size: 18px;
@@ -159,4 +155,52 @@ p{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         margin-top: -20px;
     }
+}
+@media(max-width: 767px){
+    .weather-container .bottom-container{
+        display: flex;
+        margin-top: 20px;
+    }
+    .weather-container .top-container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+    }
+    .weather-container .top-container p{
+        padding: 0;
+    }
+}
+@media(max-width: 280px){
+    .weather-container{
+        margin: 0 -25px;
+    }
+    .weather-container .bottom-container .box p{
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+#sunny{
+    animation: logo-spin infinite 20s linear;
+}
+#cloudy{
+    animation: bigger infinite 5s linear;
+    transition: 0.5s;
+}
+#rain,#thunder,#cloudyrainy{
+    animation: move-down infinite 1s linear;
+}
+#snow{
+    animation: logo-spin infinite 20s linear;
+}
+@keyframes bigger {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+@keyframes move-down {
+    0%{transform: translateY(0);}
+    50%{transform: translateY(2%);}
+    100%{transform: translateY(0);}
 }
